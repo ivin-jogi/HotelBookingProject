@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Account</title>
+    <link th:href = "@{/css/signUp.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="signup-box">
+    <h1>Create an account</h1>
+    <form>
+      <input type="email" placeholder="Email address"  />
+
+        <input type="text" placeholder="First name" />
+
+        <input type="text" placeholder="Last name" />
+
+        <input type="password" placeholder="Password" />
+
+        <p>
+                By creating an account, I agree to the Expedia
+            <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
+        </p>
+
+        <input type="button" value="Submit"/>
+    </form>
+
+</div>
+<p class="para-2">
+    Already have an account? <a th:href="@{/login}">Sign in</a>
+</p>
+</body>
+</html>

@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <title>loginpage</title>
     <link th:href = "@{/css/login.css}" rel="stylesheet" >
-    <script type="text/javascript" th:src="@{/js/actions.js}"></script>
 </head>
 <body>
-<div class="login">
-    <h1>Expedia Hotel Bookings</h1>
-    <form name="myForm" action="/welcome.html" class="loginDetails">
+<h1>Expedia Hotel Bookings</h1>
+<div class="login-form">
+    <form name="myForm" action="/welcome.html" >
         <h2>Login Details</h2>
-        <label for="uname">Username</label>
-        <input type="text" id="uname" name="user" required />
+        <input type="email" class="input"  name="mail" placeholder="Email id" required />
         <br /><br />
-        <label for="pass">Password</label>
-        <input type="password" id="pass" name="password" required />
+        <input type="password" class="input"  name="password" placeholder="Password" required />
         <br /><br />
-        <button type="submit" id="myBtn">Login</button>
+        <button type="submit" id="signin-btn">Sign in</button>
+        <hr><br/>
+        <p>Create New Account?<a th:href="@{/signup}">Sign up</a> </p>
     </form>
 </div>
 </body>
