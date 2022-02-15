@@ -1,22 +1,59 @@
 package com.ibs.litmusproject.HotelBooking.model;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name="List")
+@Table(name="Registration")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(length = 24)
+    @Column
     private Long id;
-    @Column(length=20)
-    private String email;
-    @Column(length = 20)
+    @Column
     private String firstName;
-    @Column(length=25)
+    @Column
     private String lastName;
-    @Column(length = 20)
+    @Column
+    private String email;
+    @Column
     private String password;
+    private Date dateCreated;
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public User() {
+
+    }
+
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.password=password;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "authority_id") })
+    private Set<Authority> authorities = new HashSet<>();
+
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
 
     public Long getId() {
         return id;
