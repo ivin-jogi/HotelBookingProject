@@ -18,7 +18,7 @@ public class RegistrationController {
 
     @GetMapping
     public String showSignUp(Model model){
-        return "signup";
+        return "registration";
     }
     @ModelAttribute("user")
     public UserDto userDto(){

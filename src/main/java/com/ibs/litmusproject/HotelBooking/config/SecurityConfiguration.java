@@ -50,21 +50,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                  .authorizeRequests()
                  .antMatchers(
                          "/registration**",
-                         "/js/**",
+
                          "/css/**",
-                         "/img/**",
-                         "/webjars/**").permitAll()
+                         "/images/**"
+                         ).permitAll()
                  .anyRequest().authenticated()
                  .and()
                  .formLogin()
-                 .loginPage("/login")
+                 .loginPage("/login1")
                  .permitAll()
                  .and()
                  .logout()
                  .invalidateHttpSession(true)
                  .clearAuthentication(true)
                  .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                 .logoutSuccessUrl("/login?logout")
+                 .logoutSuccessUrl("/login1?logout")
                  .permitAll();
      }
 }
