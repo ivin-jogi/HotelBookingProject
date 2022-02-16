@@ -1,10 +1,8 @@
-package com.ibs.litmusproject.hotelbooking.service;
+package com.ibs.litmusproject.HotelBooking.service;
 
+import com.ibs.litmusproject.HotelBooking.model.User;
+import com.ibs.litmusproject.HotelBooking.web.dto.UserDto;
 
-import com.ibs.litmusproject.hotelbooking.model.User;
-import com.ibs.litmusproject.hotelbooking.web.dto.UserDto;
-import org.springframework.security.core.userdetails.UserDetailsService;
-
-public interface UserService extends UserDetailsService {
-User save(UserDto userdto);
+public interface UserService {
+User saveUser(UserDto userdto);
 }

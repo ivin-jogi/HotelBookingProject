@@ -1,6 +1,7 @@
-package com.ibs.litmusproject.hotelbooking.config;
+package com.ibs.litmusproject.HotelBooking.config;
 
-import com.ibs.litmusproject.hotelbooking.service.UserService;
+import com.ibs.litmusproject.HotelBooking.service.CustomUserDetailsService;
+import com.ibs.litmusproject.HotelBooking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserService userService;
+    private CustomUserDetailsService customUserDetailsService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -27,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userService);
+        auth.setUserDetailsService(customUserDetailsService);
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
@@ -43,8 +44,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/images/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/login")
+                .formLogin().loginPage("/login").usernameParameter("email").passwordParameter("password").permitAll()
+                .loginProcessingUrl("/doLogin")
+                .successForwardUrl("/loginsuccess")
+                .failureUrl("/loginfailure")
                 .permitAll()
                 .and()
                 .logout()

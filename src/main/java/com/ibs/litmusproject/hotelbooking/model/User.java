@@ -1,11 +1,12 @@
-package com.ibs.litmusproject.hotelbooking.model;
+package com.ibs.litmusproject.HotelBooking.model;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name="Accounts")
+@Table(name = "users")
 public class User {
     @Id
     @Column
@@ -19,31 +20,32 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
+    @Column(name = "createdDate")
+    private Date createdDate;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
 
     public User() {
     }
 
-    public User( String firstName, String lastName, String email, String password, Collection<Role> roles) {
+    public User(String firstName, String lastName, String email, String password,Date createdDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.roles = roles;
+        this.createdDate=createdDate;
     }
+
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "authority_id") })
+    private Set<Authority> authorities = new HashSet<>();
+
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -80,11 +82,19 @@ public class User {
         this.password = password;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
     }
 }
