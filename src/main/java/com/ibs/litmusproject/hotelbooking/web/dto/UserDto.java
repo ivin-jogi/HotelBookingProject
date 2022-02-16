@@ -1,4 +1,4 @@
-package com.ibs.litmusproject.HotelBooking.web.dto;
+package com.ibs.litmusproject.hotelbooking.web.dto;
 
 public class UserDto {
     private String firstName;

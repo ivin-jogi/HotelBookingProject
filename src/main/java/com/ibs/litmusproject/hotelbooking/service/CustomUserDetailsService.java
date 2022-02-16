@@ -1,8 +1,8 @@
-package com.ibs.litmusproject.HotelBooking.service;
+package com.ibs.litmusproject.hotelbooking.service;
 
-import com.ibs.litmusproject.HotelBooking.HotelUserDetails.UserLoginDetails;
-import com.ibs.litmusproject.HotelBooking.model.User;
-import com.ibs.litmusproject.HotelBooking.repository.UserRepository;
+import com.ibs.litmusproject.hotelbooking.HotelUserDetails.UserLoginDetails;
+import com.ibs.litmusproject.hotelbooking.model.User;
+import com.ibs.litmusproject.hotelbooking.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

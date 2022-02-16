@@ -1,11 +1,11 @@
-package com.ibs.litmusproject.HotelBooking.service;
+package com.ibs.litmusproject.hotelbooking.service;
 
-import com.ibs.litmusproject.HotelBooking.model.Authority;
-import com.ibs.litmusproject.HotelBooking.model.AuthorityType;
-import com.ibs.litmusproject.HotelBooking.model.User;
-import com.ibs.litmusproject.HotelBooking.repository.AuthorityRepository;
-import com.ibs.litmusproject.HotelBooking.repository.UserRepository;
-import com.ibs.litmusproject.HotelBooking.web.dto.UserDto;
+import com.ibs.litmusproject.hotelbooking.model.Authority;
+import com.ibs.litmusproject.hotelbooking.model.AuthorityType;
+import com.ibs.litmusproject.hotelbooking.model.User;
+import com.ibs.litmusproject.hotelbooking.repository.AuthorityRepository;
+import com.ibs.litmusproject.hotelbooking.repository.UserRepository;
+import com.ibs.litmusproject.hotelbooking.web.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
