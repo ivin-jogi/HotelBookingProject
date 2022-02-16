@@ -1,32 +1,44 @@
 package com.ibs.litmusproject.HotelBooking.controller;
 
-
-
+import com.ibs.litmusproject.HotelBooking.model.Authority;
 import com.ibs.litmusproject.HotelBooking.service.UserService;
 import com.ibs.litmusproject.HotelBooking.web.dto.UserDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Collections;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
 
-    @Autowired
     private UserService userService;
 
-    @GetMapping
-    public String showSignUp(Model model){
-        return "registration";
+
+    public RegistrationController(UserService userService) {
+        this.userService = userService;
     }
+
     @ModelAttribute("user")
-    public UserDto userDto(){
+    public UserDto userDto() {
         return new UserDto();
     }
+
+    @GetMapping
+    public String showRegisterAccount() {
+        return "registration";
+    }
+
     @PostMapping
-    public String regUser(@ModelAttribute("user") UserDto userDto){
+    public String registerAccount(@ModelAttribute("user") UserDto userDto) {
+
         userService.saveUser(userDto);
         return "redirect:/registration?success";
     }
+
+
 }
