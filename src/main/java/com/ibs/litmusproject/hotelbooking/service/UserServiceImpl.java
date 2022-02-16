@@ -1,55 +1,41 @@
-package com.ibs.litmusproject.hotelbooking.service;
+package com.ibs.litmusproject.HotelBooking.service;
 
-
-import com.ibs.litmusproject.hotelbooking.domain.BookingUsersDetails;
-import com.ibs.litmusproject.hotelbooking.model.Role;
-import com.ibs.litmusproject.hotelbooking.model.User;
-import com.ibs.litmusproject.hotelbooking.repository.UserRepository;
-import com.ibs.litmusproject.hotelbooking.web.dto.UserDto;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.ibs.litmusproject.HotelBooking.model.Authority;
+import com.ibs.litmusproject.HotelBooking.model.AuthorityType;
+import com.ibs.litmusproject.HotelBooking.model.User;
+import com.ibs.litmusproject.HotelBooking.repository.AuthorityRepository;
+import com.ibs.litmusproject.HotelBooking.repository.UserRepository;
+import com.ibs.litmusproject.HotelBooking.web.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
+    @Autowired
+    private AuthorityRepository authorityRepository;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public UserServiceImpl( UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
 
     @Override
-    public User save(UserDto userdto) {
-        User user = new User(userdto.getFirstName(),userdto.getLastName(),userdto.getEmail(), passwordEncoder.encode(userdto.getPassword()),Arrays.asList(new Role("ROLE_USER")) );
+    public User saveUser(UserDto userdto) {
+        User user = new User(userdto.getFirstName(), userdto.getLastName(), userdto.getEmail(), passwordEncoder.encode(userdto.getPassword()),new Date());
+        Set<Authority> authorities = Collections.singleton(authorityRepository.findByName(AuthorityType.ROLE_USER));
+        user.setAuthorities(authorities);
         return userRepository.save(user);
     }
 
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found.");
-        }
-
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
-    }
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-    }
 }
