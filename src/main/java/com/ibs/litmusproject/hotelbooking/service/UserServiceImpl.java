@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(UserDto userdto) {
-        User user = new User(userdto.getFirstName(), userdto.getLastName(), userdto.getEmail(), passwordEncoder.encode(userdto.getPassword()),new Date());
+        User user = new User(userdto.getFirstName(), userdto.getLastName(), userdto.getEmail(), passwordEncoder.encode(userdto.getPassword()), new Date());
         Set<Authority> authorities = Collections.singleton(authorityRepository.findByName(AuthorityType.ROLE_USER));
         user.setAuthorities(authorities);
         return userRepository.save(user);

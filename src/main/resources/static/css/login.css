@@ -1,37 +1,41 @@
 
 body {
-margin: 0;
- padding: 0;
- background-image: url("/images/hotel_travel.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-image: url("/images/hotel_travel.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 h1 {
-  color: white;
-  text-align: center;
-  padding-top: 50px;
-  font-size: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 50px;
 }
 h2{
 text-align: center;
 
 
+h2 {
+    text-align: center;
+
+
 .login-form {
-  width: 382px;
-  overflow: hidden;
-  margin: auto;
-  margin: 20 0 0 450px;
-  margin-top: 5%;
-  padding: 40px;
-  background: #8fbc8f;
-  background-color: #fff;
-  border-radius: 15px;
+    width: 382px;
+    overflow: hidden;
+    margin: auto;
+    margin: 20 0 0 450px;
+    margin-top: 5%;
+    padding: 40px;
+    background: #8fbc8f;
+    background-color: #fff;
+    border-radius: 15px;
 }
 
 p {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 15px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
 }
 
