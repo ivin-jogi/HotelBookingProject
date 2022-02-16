@@ -1,7 +1,6 @@
-package com.ibs.litmusproject.HotelBooking.HotelUserDetails;
+package com.ibs.litmusproject.hotelbooking.HotelUserDetails;
 
-import com.ibs.litmusproject.HotelBooking.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ibs.litmusproject.hotelbooking.model.User;
 import org.springframework.security.core.GrantedAuthority;
 
 import org.springframework.security.core.userdetails.UserDetails;

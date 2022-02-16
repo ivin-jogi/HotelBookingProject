@@ -1,7 +1,7 @@
-package com.ibs.litmusproject.HotelBooking.service;
+package com.ibs.litmusproject.hotelbooking.service;
 
-import com.ibs.litmusproject.HotelBooking.model.User;
-import com.ibs.litmusproject.HotelBooking.web.dto.UserDto;
+import com.ibs.litmusproject.hotelbooking.model.User;
+import com.ibs.litmusproject.hotelbooking.web.dto.UserDto;
 
 public interface UserService {
     User saveUser(UserDto userdto);

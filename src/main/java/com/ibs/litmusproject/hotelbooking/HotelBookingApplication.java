@@ -1,4 +1,4 @@
-package com.ibs.litmusproject.HotelBooking;
+package com.ibs.litmusproject.hotelbooking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

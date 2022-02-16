@@ -1,15 +1,13 @@
-package com.ibs.litmusproject.HotelBooking.controller;
+package com.ibs.litmusproject.hotelbooking.controller;
 
-import com.ibs.litmusproject.HotelBooking.HotelUserDetails.UserLoginDetails;
-import com.ibs.litmusproject.HotelBooking.model.User;
+import com.ibs.litmusproject.hotelbooking.HotelUserDetails.UserLoginDetails;
+import com.ibs.litmusproject.hotelbooking.model.User;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 

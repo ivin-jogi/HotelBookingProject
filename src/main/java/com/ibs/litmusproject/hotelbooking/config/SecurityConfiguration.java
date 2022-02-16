@@ -1,6 +1,6 @@
-package com.ibs.litmusproject.HotelBooking.config;
+package com.ibs.litmusproject.hotelbooking.config;
 
-import com.ibs.litmusproject.HotelBooking.service.CustomUserDetailsService;
+import com.ibs.litmusproject.hotelbooking.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
