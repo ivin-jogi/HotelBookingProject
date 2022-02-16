@@ -1,10 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.domain;
 
 
-public class BookingUsersDetails  {
-
-
-
+public class BookingUsersDetails {
 
 
 }

@@ -1,9 +1,7 @@
 package com.ibs.litmusproject.HotelBooking.HotelUserDetails;
 
 import com.ibs.litmusproject.HotelBooking.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -51,6 +49,7 @@ public class UserLoginDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
     public User getUserDetails() {
         return user;
     }

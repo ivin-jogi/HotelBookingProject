@@ -1,6 +1,5 @@
 package com.ibs.litmusproject.HotelBooking.controller;
 
-import com.ibs.litmusproject.HotelBooking.model.Authority;
 import com.ibs.litmusproject.HotelBooking.service.UserService;
 import com.ibs.litmusproject.HotelBooking.web.dto.UserDto;
 import org.springframework.stereotype.Controller;
@@ -8,9 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Collections;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/registration")

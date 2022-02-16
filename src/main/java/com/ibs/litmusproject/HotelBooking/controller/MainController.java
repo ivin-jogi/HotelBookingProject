@@ -8,29 +8,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login1";
     }
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "index";
     }
 
 
-
     @GetMapping("/loginfailure")
-    public String loginFailure(){
+    public String loginFailure() {
         return "error";
     }
+
     @PostMapping(value = "/loginsuccess")
     public String postLogin(Model model, HttpSession session) {
 
@@ -44,6 +42,7 @@ public class MainController {
         session.setAttribute("userId", loggedInUser.getId());
         return "redirect:/index";
     }
+
     private void validatePrinciple(Object principal) {
         if (!(principal instanceof UserLoginDetails)) {
             throw new IllegalArgumentException("Principal can not be null!");

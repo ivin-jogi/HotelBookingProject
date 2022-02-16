@@ -1,4 +1,5 @@
 package com.ibs.litmusproject.HotelBooking.model;
+
 import javax.persistence.*;
 
 @Entity

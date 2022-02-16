@@ -8,8 +8,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class HotelBookingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HotelBookingApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HotelBookingApplication.class, args);
+    }
 
 }

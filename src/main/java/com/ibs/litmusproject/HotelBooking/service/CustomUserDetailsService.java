@@ -11,19 +11,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-        @Autowired
-        private UserRepository userRepository;
-        @Override
-        public UserDetails loadUserByUsername(String username)
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-            User user = userRepository.findByEmail(username);
+        User user = userRepository.findByEmail(username);
 
-            if (user == null) {
-                throw new UsernameNotFoundException("Invalid username or password");
-            }
-
-            return new UserLoginDetails(user);
+        if (user == null) {
+            throw new UsernameNotFoundException("Invalid username or password");
         }
 
+        return new UserLoginDetails(user);
     }
+
+}
 
