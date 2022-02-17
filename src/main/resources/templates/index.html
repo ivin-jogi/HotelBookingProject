@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Expedia Hotel Booking App</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
-</head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="fragments :: html_headtag"/>
+
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span
-                    class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" th:href="@{/}"><b>Expedia Hotel Bookings</b></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<br>
-<br>
+<div th:replace="fragments :: html_header"></div>
+
 <div class="container">
-    <h1>WELCOME TO EXPEDIA HOTEL BOOKING APP</h1>
+    <h1 th:align="center"> EXPEDIA HOTEL BOOKING APP</h1>
+    <br>
+    <h2>
+        Welcome, <span sec:authentication="principal.username">User</span>
+    </h2>
+<br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="place">Going to:</label>
+                <input type="search" class="form-control" id="place" name="placeSelect" placeholder="Going to"/>
+
+            </div>
+            <div class="col-lg-3">
+                <label for="dateIn">Check In:</label>
+                <input type="date" class="form-control" id="dateIn" name="dateIn" placeholder="Check In">
+            </div>
+
+            <div class="col-lg-3">
+                <label for="dateOut">Check Out:</label>
+                <input type="date" class="form-control" id="dateOut" name="dateOut" placeholder="Check Out">
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container bg-light">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success"><a th:href="@{/result}">Search</a></button>
+
+            </div>
+        </div>
+
+        <br>
+        <br>
+    </div>
+    <div th:replace="fragments :: html_footer"></div>
 </div>
 </body>
 </html>
