@@ -22,14 +22,13 @@ public class MainController {
     public String home(){
         return "index";
     }
-
-
-
-    @GetMapping("/loginfailure")
-    public String loginFailure(){
-        return "error";
+    @GetMapping("/home")
+    public String homePage(){
+        return "index";
     }
+
     @PostMapping(value = "/loginsuccess")
+
     public String postLogin(Model model, HttpSession session) {
 
         // read principal out of security context and set it to session
@@ -39,8 +38,8 @@ public class MainController {
 
         model.addAttribute("currentUserId", loggedInUser.getId());
         model.addAttribute("currentUser", loggedInUser.getEmail());
-        session.setAttribute("userId", loggedInUser.getId());
-        return "redirect:/index";
+        return "redirect:/home";
+
     }
     private void validatePrinciple(Object principal) {
         if (!(principal instanceof UserLoginDetails)) {
