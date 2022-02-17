@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,5 +48,21 @@ public class MainController {
             throw new IllegalArgumentException("Principal can not be null!");
         }
     }
+
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    public String searchHotel() {
+        return "searchresult";
+    }
+
+    @RequestMapping(value = "/bookhotel", method = RequestMethod.GET)
+    public String bookHotel() {
+        return "booking";
+    }
+
+    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+    public String showCheckout() {
+        return "checkout";
+    }
+
 }
 
