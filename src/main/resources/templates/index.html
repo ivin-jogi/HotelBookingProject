@@ -11,36 +11,107 @@
     <h2>
         Welcome, <span sec:authentication="principal.username">User</span>
     </h2>
-<br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <label for="place">Going to:</label>
-                <input type="search" class="form-control" id="place" name="placeSelect" placeholder="Going to"/>
+    <br><br>
 
-            </div>
-            <div class="col-lg-3">
-                <label for="dateIn">Check In:</label>
-                <input type="date" class="form-control" id="dateIn" name="dateIn" placeholder="Check In">
-            </div>
+    <div class="container" style="margin-bottom:30px">
+        <div class="row" style="text-align: center">
 
-            <div class="col-lg-3">
-                <label for="dateOut">Check Out:</label>
-                <input type="date" class="form-control" id="dateOut" name="dateOut" placeholder="Check Out">
+            <div class="card">
+                <div class="card-body">
+                    <form th:action="@{/result}" th:object="${searchHotelResults}" method="post"
+                          class="form-inline">
+                        <div class="row">
+
+                            <div class="form-group">
+                                <label for="destination" class="control-label">&nbsp; Destination &nbsp;</label>
+
+                                <input type="text" class="form-control" id="destination" placeholder="Going to"
+                                       name="destination" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="checkin" class="control-label">&nbsp; Check In &nbsp;</label>
+                                <input type="date" class="form-control" id="checkin" placeholder="from" name="checkin"
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="checkout">&nbsp; Check Out &nbsp;</label>
+                                <input type="date" class="form-control" placeholder="To" id="checkout"
+                                       name="checkout" required>
+                            </div>
+                            <br><br>
+                            <h2>Travellers</h2>
+                            <div class="form-group">
+                                <label class="control-label" for="adults">&nbsp; Adults &nbsp;</label>
+                                <input type="number" class="form-control" placeholder="Number of adults" id="adults"
+                                       name="adults" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="children">&nbsp; Children &nbsp;</label>
+                                <input type="number" class="form-control" placeholder="Number of children" id="children"
+                                       name="children" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="room">&nbsp; Rooms &nbsp;</label>
+                                <input type="number" class="form-control" placeholder="Number of rooms" id="room"
+                                       name="room" min="1">
+                            </div>
+
+                            <br><br>
+                            <div>
+                                <div class="form-group col-12">
+
+                                    <button type="submit" class="btn btn-primary" style="float: right">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <br><br><br>
-        <div class="container bg-light">
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success"><a th:href="@{/result}">Search</a></button>
-
-            </div>
-        </div>
-
-        <br>
-        <br>
     </div>
-    <div th:replace="fragments :: html_footer"></div>
-</div>
+
+
+            <br>
+            <div class="row">
+                <th:block th:if="${notFound !=null}">
+                    <div class="col-12">
+                        <p style="text-align: center; margin-top: 30px;font-weight: bold">No Hotels Available for above
+                            search
+                            !</p>
+                    </div>
+                </th:block>
+                <th:block th:if="${searchHotelResults !=null}">
+                    <div class="row" style="margin-bottom: 10px">
+                        <div class="center-block">
+                            <h4 style="text-align: center">Search Results</h4>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+
+            <div th:each="hotels,state:${searchHotelResults}">
+
+
+                <a style="text-decoration: none" th:href="@{/hotels/bookHotels(hotel=${hotels.getHotelName()},
+                                           location=${hotels.getLocation()},
+                                           price=${hotels.getPrice()},
+                                           hotelRating=${hotels.getHotelRating()})}">
+
+                    <br>
+                    <br>
+                </a>
+            </div>
+
+    <form style="display: inline" th:action="@{/hoteldetails}" method="get">
+        <button  class="btn btn-primary " type="Submit">View Details</button>
+    </form>
+            <div th:replace="fragments :: html_footer"></div>
+        </div>
+<!--        <script>-->
+<!--function openForm() {-->
+<!--  document.getElementById("myForm").style.display = "block";-->
+<!--}-->
 </body>
 </html>
