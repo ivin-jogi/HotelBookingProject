@@ -51,6 +51,7 @@ public class MainController {
     }
 
 
+
     @RequestMapping("/result")
     public String searchHotel() {
         return "index";
@@ -62,12 +63,15 @@ public class MainController {
     }
 
     @RequestMapping("/bookhotel")
+
     public String bookHotel() {
         return "booking";
     }
 
+
     @RequestMapping("/checkout")
     public String paymentDetails() {
+
         return "checkout";
     }
 
