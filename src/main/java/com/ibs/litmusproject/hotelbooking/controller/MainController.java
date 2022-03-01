@@ -16,21 +16,21 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainController {
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login1";
     }
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "index";
     }
+
     @GetMapping("/home")
-    public String homePage(){
+    public String homePage() {
         return "index";
     }
 
     @PostMapping(value = "/loginsuccess")
-
     public String postLogin(Model model, HttpSession session) {
 
         // read principal out of security context and set it to session
@@ -43,24 +43,31 @@ public class MainController {
         return "redirect:/home";
 
     }
+
     private void validatePrinciple(Object principal) {
         if (!(principal instanceof UserLoginDetails)) {
             throw new IllegalArgumentException("Principal can not be null!");
         }
     }
 
-    @RequestMapping(value = "/result", method = RequestMethod.GET)
+
+    @RequestMapping("/result")
     public String searchHotel() {
-        return "searchresult";
+        return "index";
     }
 
-    @RequestMapping(value = "/bookhotel", method = RequestMethod.GET)
+    @RequestMapping("/hoteldetails")
+    public String viewDetails() {
+        return "hoteldetails";
+    }
+
+    @RequestMapping("/bookhotel")
     public String bookHotel() {
         return "booking";
     }
 
-    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
-    public String showCheckout() {
+    @RequestMapping("/checkout")
+    public String paymentDetails() {
         return "checkout";
     }
 
