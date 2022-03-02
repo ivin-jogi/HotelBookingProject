@@ -16,6 +16,7 @@ import java.util.List;
 
 @Service
 public class SearchListService {
+/*
     @Value("${rapidapi.hotel.endpoint}")
     private String rapidApiUrl;
 
@@ -24,6 +25,7 @@ public class SearchListService {
 
     @Value("${rapidapi.hotel.key}")
     private String rapidApiKey;
+*/
 
 
     /* private String getApiUrl(String destId,String checkIn,String checkOut){
