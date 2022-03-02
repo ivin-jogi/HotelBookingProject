@@ -16,17 +16,6 @@ import java.util.List;
 
 @Service
 public class SearchListService {
-/*
-    @Value("${rapidapi.hotel.endpoint}")
-    private String rapidApiUrl;
-
-    @Value("${rapidapi.hotel.host}")
-    private String rapidApiHost;
-
-    @Value("${rapidapi.hotel.key}")
-    private String rapidApiKey;
-*/
-
 
     /* private String getApiUrl(String destId,String checkIn,String checkOut){
             return ""+"destinationId="+destId+"&pageNumber=1&pageSize=10&checkIn="+checkIn+"&checkOut="+checkOut+"&adults1=1&sortOrder=PRICE&locale=en_US&currency=USD";
@@ -48,17 +37,6 @@ public class SearchListService {
             headers.set("x-rapidapi-host", "hotels4.p.rapidapi.com");
             headers.set("content-type", "application/json");
             headers.setContentType(MediaType.APPLICATION_JSON);
-
-            /*headers.set("access-control-allow-credentials", "true");
-            headers.set("access-control-allow-headers", "ver");
-            headers.set("access-control-allow-methods", "GET, POST");
-            headers.set("access-control-allow-origin", "*");
-            headers.set("date", "Tue, 03 Dec 2019 07:34:31 GMT");
-            headers.set("server", "RapidAPI-1.0.32");
-            headers.set("x-rapidapi-region", "AWS - ap-southeast-1");
-            headers.set("x-rapidapi-version", "1.0.32");
-            headers.set("content-length", "45658");
-            headers.set("connection", "Close");*/
 
 
             HttpEntity<String> request = new HttpEntity<String>(headers);
