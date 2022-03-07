@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
-
+//badge details
 public class HotelBadgeDto {
     private String type;
     private String label;

@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//hyigiene details
 public class HygieneAndCleanlinessDto {
     private String title;
 

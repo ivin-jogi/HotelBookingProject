@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//featured price object class
 public class FeaturedPriceDto {
     private String pricingAvailability;
     private CurrentPriceDto currentPrice;

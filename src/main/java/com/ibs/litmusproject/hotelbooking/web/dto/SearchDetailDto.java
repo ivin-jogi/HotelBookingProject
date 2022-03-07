@@ -3,7 +3,7 @@ package com.ibs.litmusproject.hotelbooking.web.dto;
 import com.ibs.litmusproject.hotelbooking.uihoteldetailpojo.*;
 
 import java.util.List;
-
+//dto for hotel details
 public class SearchDetailDto {
 
     private String id;

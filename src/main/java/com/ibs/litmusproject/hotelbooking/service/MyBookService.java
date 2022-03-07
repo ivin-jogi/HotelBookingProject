@@ -39,51 +39,6 @@ public class MyBookService {
     private SearchDetailsService detailsService;
 
 
-    /* @Override
-     @Transactional
-     public CheckOutUser saveBooking(CheckOutUserDto checkOutDto) {
-        *//* CheckOutUser userBooking = new CheckOutUser(checkOutDto.getFirstName(), checkOutDto.getLastName(),
-                checkOutDto.getEmail(), checkOutDto.getMobile(), checkOutDto.getPassengers(), checkOutDto.getCheckIn(),
-                checkOutDto.getCheckOut(), checkOutDto.getUserId(), checkOutDto.getHotelId(), new Date());*//*
-        CheckOutUser userBooking = new CheckOutUser();
-        userBooking.setFirstName(checkOutDto.getFirstName());
-        userBooking.setLastName(checkOutDto.getLastName());
-        userBooking.setEmail(checkOutDto.getEmail());
-        userBooking.setMobile(checkOutDto.getMobile());
-        userBooking.setCheckIn(checkOutDto.getCheckIn());
-        userBooking.setCheckOut(checkOutDto.getCheckOut());
-        userBooking.setCreatedDate(new Date());
-        // userBooking.setPassengers("N/A");
-        userBooking.setPassengers(checkOutDto.getPassengers());
-        SearchDetailDto dto = detailsService.getPropertyDetailApi(checkOutDto.getHotelId());
-
-        Hotel hotel = hotelRepository.findByHotelId(checkOutDto.getHotelId());
-        if(null==hotel){
-            hotel = new Hotel();
-            hotel.setHotelId(checkOutDto.getHotelId());
-            // hotel.setHotelNAme(dto.getOverview().getTitle());
-            hotel.setHotelNAme(dto.getPropertyDescription().get(0).getName());
-
-        }
-
-        Location loc = locRepository.findByDestinationId("1");
-
-        if(null==loc){
-            loc = new Location();
-            loc.setDestinationId("1");
-            loc.setDestinationName("New York");
-        }
-        List<Location> lstLoc = new ArrayList<>();
-        lstLoc.add(loc);
-        List<Hotel> lstHotel = new ArrayList<>();
-        hotel.setLocations(lstLoc);
-        lstHotel.add(hotel);
-        userBooking.setHotels(lstHotel);
-
-        User usr = userRepository.getById(Long.valueOf(checkOutDto.getUserId()));
-        userBooking.setUser(usr);
-        return bookingRepository.save(userBooking);
-    }*/
     private MyBookDto convertBookingToDto(CheckOutUser model){
         MyBookDto dto=new MyBookDto();
 

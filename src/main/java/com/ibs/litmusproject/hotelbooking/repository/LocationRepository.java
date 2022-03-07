@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+//location fetched by id
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Integer> {
 

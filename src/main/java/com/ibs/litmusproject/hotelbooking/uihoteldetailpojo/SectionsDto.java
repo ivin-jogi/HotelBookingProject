@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
-
+//section class
 public class SectionsDto {
     private String heading;
     private String freeText;

@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.web.dto;
-
+//dto for mybookings
 public class MyBookDto {
     private int bookingId;
     private String hotelName;

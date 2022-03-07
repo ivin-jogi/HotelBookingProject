@@ -4,7 +4,7 @@ package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 import java.util.List;
 
 public class PropertyDescriptionDto {
-
+//to fetch hotel description
     private String address;
     private String name;
     private String starRatingTitle;

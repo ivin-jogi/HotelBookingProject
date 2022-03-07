@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//dto for glance
 public class AtAGlanceDto {
     private KeyFactsDto keyFacts;
     private List<TravellingOrInternetDto> travellingOrInternet;

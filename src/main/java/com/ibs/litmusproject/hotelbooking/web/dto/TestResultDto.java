@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.web.dto;
-
+//test dto class
 public class TestResultDto {
     private Long id;
     private String content;

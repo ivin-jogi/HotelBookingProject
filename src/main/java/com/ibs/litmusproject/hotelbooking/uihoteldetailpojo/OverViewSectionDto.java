@@ -2,6 +2,7 @@ package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
 
+//suboverview class
 public class OverViewSectionDto {
     private String title;
     private String type;

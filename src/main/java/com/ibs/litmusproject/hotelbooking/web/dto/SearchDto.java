@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.web.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+//dto for user input
 public class SearchDto {
 
     private String destinationId;

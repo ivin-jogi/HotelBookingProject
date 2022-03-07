@@ -53,6 +53,7 @@ public class SearchDetailsService {
                             PropertyDetailsPojo.class);
             PropertyDetailsPojo pojoData = pojoEntity.getBody();
 
+//Extract each detail and add to detail object
 
             PdpHeaderdto headerdto = new PdpHeaderdto();
             HotelLocationDto locationDto = new HotelLocationDto();

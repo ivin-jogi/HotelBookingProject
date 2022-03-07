@@ -16,7 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
-
+//checkout table
 @Entity
 @Table(name = "booking")
 public class CheckOutUser {

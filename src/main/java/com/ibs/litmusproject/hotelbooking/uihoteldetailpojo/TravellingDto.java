@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//hotel detail on travelling
 public class TravellingDto {
     private List<String> pets;
 

@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//keyfact details
 public class KeyFactsDto {
     private List<String> hotelSize;
     private List<String> arrivingLeaving;

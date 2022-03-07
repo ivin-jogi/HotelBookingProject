@@ -1,5 +1,6 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
+//map class
 public class MapWidgetDto {
     private String staticMapurl;
 

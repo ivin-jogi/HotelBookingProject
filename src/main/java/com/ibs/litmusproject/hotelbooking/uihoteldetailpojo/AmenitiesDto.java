@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//dto for amenities
 public class AmenitiesDto {
     private String heading;
     private List<ListItemsDto> listItems;

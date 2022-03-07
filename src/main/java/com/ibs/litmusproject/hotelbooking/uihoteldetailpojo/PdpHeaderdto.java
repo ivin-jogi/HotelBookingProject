@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
-
+//to fetch location
 public class PdpHeaderdto {
     private String destinationId;
     private HotelLocationDto hotelLocationDto;

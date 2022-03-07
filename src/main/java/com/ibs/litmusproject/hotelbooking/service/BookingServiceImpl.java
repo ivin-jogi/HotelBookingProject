@@ -41,9 +41,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     @Transactional
     public CheckOutUser saveBooking(CheckOutUserDto checkOutDto) {
-       /* CheckOutUser userBooking = new CheckOutUser(checkOutDto.getFirstName(), checkOutDto.getLastName(),
-                checkOutDto.getEmail(), checkOutDto.getMobile(), checkOutDto.getPassengers(), checkOutDto.getCheckIn(),
-                checkOutDto.getCheckOut(), checkOutDto.getUserId(), checkOutDto.getHotelId(), new Date());*/
+
         CheckOutUser userBooking = new CheckOutUser();
         userBooking.setFirstName(checkOutDto.getFirstName());
         userBooking.setLastName(checkOutDto.getLastName());

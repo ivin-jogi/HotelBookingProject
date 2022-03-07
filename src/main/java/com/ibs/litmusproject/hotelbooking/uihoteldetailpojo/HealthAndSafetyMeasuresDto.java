@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//health measures details
 public class HealthAndSafetyMeasuresDto {
     private String title;
     private String description;

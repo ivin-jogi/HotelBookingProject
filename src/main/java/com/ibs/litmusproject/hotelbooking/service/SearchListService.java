@@ -75,5 +75,5 @@ public class SearchListService {
         return extractList;
     }
 
-
+//returns only needed info
 }

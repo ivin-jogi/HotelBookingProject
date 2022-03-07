@@ -108,29 +108,5 @@ public class MainController {
         model.addAttribute("bookpage", lstbook);
         return "mybooking";
     }
-  /*@PostMapping("/mybooking")
-  public String myBookings(@ModelAttribute MyBookDto myBookDto, Model model){
-    model.addAttribute("mybookings",myBookDto);
-    List<MyBookDto> lstbook=new ArrayList<>();
 
-    MyBookDto bookDto=new MyBookDto();
-    bookDto.setBookingId(1000);
-    bookDto.setHotelName("Hotel Voyage");
-    bookDto.setLocation("New York");
-    bookDto.setCheckIn("2021-03-04");
-    bookDto.setCheckOut("2021-03-15");
-    lstbook.add(bookDto);
-
-    MyBookDto bookDto1=new MyBookDto();
-    bookDto1.setBookingId(2000);
-    bookDto1.setHotelName("Hotel Atlanta");
-    bookDto1.setLocation("Paris");
-    bookDto1.setCheckIn("2022-02-04");
-    bookDto1.setCheckOut("2022-02-15");
-    lstbook.add(bookDto1);
-
-model.addAttribute("bookpage",lstbook);
-return "mybooking";
-
-  }*/
 }

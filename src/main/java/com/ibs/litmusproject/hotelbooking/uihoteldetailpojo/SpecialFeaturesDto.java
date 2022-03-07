@@ -1,7 +1,7 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
 
 import java.util.List;
-
+//feature detail class
 public class SpecialFeaturesDto {
     private List<SectionsDto> sections;
 

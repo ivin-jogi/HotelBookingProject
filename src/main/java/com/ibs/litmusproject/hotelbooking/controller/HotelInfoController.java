@@ -17,6 +17,7 @@ public class HotelInfoController {
 
     @GetMapping("/hotelinfo")
     public String showResultDetail(@RequestParam("hotelid") String hotelId, Model model) {
+        //call by id
         SearchDetailDto dto = detailsService.getPropertyDetailApi(hotelId);
         model.addAttribute("hotelinfo", dto);
         return "hotelinfo";

@@ -30,6 +30,7 @@ public class BookingController {
     public String showBookingRecord(@RequestParam("hotelid") String hotelId, Model model,
                                     HttpSession session) {
         session.setAttribute("hotelid", hotelId);
+        //created session
         CheckOutUserDto couserDto = new CheckOutUserDto();
         couserDto.setHotelId(hotelId);
         model.addAttribute("userBooking", couserDto);

@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
-
+//price dto
 public class CurrentPriceDto {
 
     private String formatted;

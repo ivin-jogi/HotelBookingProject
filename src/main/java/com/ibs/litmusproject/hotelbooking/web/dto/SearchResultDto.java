@@ -2,7 +2,7 @@ package com.ibs.litmusproject.hotelbooking.web.dto;
 
 import com.ibs.litmusproject.hotelbooking.searchlistuipojo.Address;
 import java.util.List;
-
+//dto for first search result
 public class SearchResultDto {
 
     private String Id;

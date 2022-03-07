@@ -2,7 +2,7 @@ package com.ibs.litmusproject.hotelbooking.web.dto;
 
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
-
+//checkout dto for checkoutuser table
 public class CheckOutUserDto {
 
     private String firstName;

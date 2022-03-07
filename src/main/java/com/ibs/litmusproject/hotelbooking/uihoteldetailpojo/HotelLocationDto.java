@@ -1,5 +1,5 @@
 package com.ibs.litmusproject.hotelbooking.uihoteldetailpojo;
-
+//location details
 public class HotelLocationDto {
 
     String locationName;

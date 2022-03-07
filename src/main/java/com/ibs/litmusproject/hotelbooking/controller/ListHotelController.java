@@ -20,7 +20,7 @@ public class ListHotelController {
     public ListHotelController(SearchListService searchListService) {
         this.searchListService = searchListService;
     }
-
+//testcode
     @GetMapping("/testresult")
     public String greetingForm(Model model) {
         model.addAttribute("testresult", new TestResultDto());
