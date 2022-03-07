@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="fragments :: html_headtag"/>
+
+<body>
+<div th:replace="fragments :: html_header"></div>
+<div class="container bg-light">
+    <a class="btn btn-primary" th:href="@{/bookhotel(hotelid=${hotelinfo.getId()})}">Book Hotel</a>
+    <div class="col-md-12 text-center">
+        <div>
+
+            <!-- <p class="card-text" th:text="'Id: ' + ${hotelinfo.id}"/>
+             <p class="card-text" th:text="'hotelName: ' + ${hotelinfo.hotelName}"/>
+             <p class="card-text" th:text="'location: ' + ${hotelinfo.location}"/>
+             <p class="card-text" th:text="'address: ' + ${hotelinfo.address}"/>
+             <p class="card-text" th:text="'city: ' + ${hotelinfo.city}"/>
+             <p class="card-text" th:text="'country: ' + ${hotelinfo.country}"/>
+             <p class="card-text" th:text="'landmark: ' + ${hotelinfo.landmark}"/>-->
+            <!--   <p class="card-text" th:text="'Locate URl : '+${hotelinfo.mapUrl}"/>-->
+
+            <div th:each="overview,state:${hotelinfo.overview.overviewSections}">
+                <p th:text=" ${overview.title}"/>
+                <p th:text=" ${overview.type}"/>
+                <p th:text=" ${overview.content}"/>
+            </div>
+
+            <div th:each="property,state:${hotelinfo.propertyDescription}">
+                <p th:text="'Address : ' + ${property.address}"/>
+                <p th:text="'Star Rating : '+ ${property.starRatingTitle}"/>
+                <p th:text="'pricingAvailability : '+ ${property.featuredPrice?.pricingAvailability}"/>
+                <p th:text="'Current Price : '+ ${property.featuredPrice.currentPrice?.formatted}"/>
+                Map Url : <a th:href="  ${property.mapWidget?.staticMapurl}">
+                <p th:text=" ${property.mapWidget?.staticMapurl}"/></a>
+
+                <p th:text="'Room Types : '+ ${property.roomTypeNames}"/>
+
+            </div>
+
+            <div th:each="glance,state:${hotelinfo.atAGlance}">
+                <p th:text="'Requirements : ' + ${glance.keyFacts.hotelSize}"/>
+            </div>
+
+            <div th:each="hygiene,state:${hotelinfo.hygieneAndCleanliness}">
+                <p th:text="${hygiene.title}"/>
+                <p th:text=" ${hygiene.healthAndSafetyMeasures?.title}"/>
+                <p th:text=" ${hygiene.healthAndSafetyMeasures?.description}"/>
+                <p th:text="'Measures : ' + ${hygiene.healthAndSafetyMeasures?.measures}"/>
+            </div>
+            <div th:each="badge,state:${hotelinfo.hotelBadge}">
+
+                Hotel Badge :  <p th:text=" ${badge.type}"/>
+                <p th:text=" ${badge.label}"/>
+                <p th:text=" ${badge.tooltipTitle}"/>
+                <p th:text=" ${badge.tooltipText}"/>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

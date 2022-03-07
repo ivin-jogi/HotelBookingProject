@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="html_headtag">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <title>Expedia Hotel Booking App</title>
 </head>
 <body>
@@ -27,8 +27,13 @@
                 <!-- <li><a href="#">Page 2</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
-                <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <div style="color:white;"  sec:authorize="isAuthenticated()">
+                    Welcome, <span  sec:authentication="name">Username</span>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </div>
+                <div sec:authorize="!isAuthenticated()">
+                    <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                </div>
             </ul>
         </div>
     </nav>
@@ -36,6 +41,9 @@
 <div th:fragment="html_footer" th:align="center">
     &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2022</span>
     <span>Expedia Travels</span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </div>
 </body>
 </html>
