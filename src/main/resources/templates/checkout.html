@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="fragments :: html_headtag">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body>
-You've successfully booked the hotel
+<div th:replace="fragments :: html_header"></div>
+<h3>Passenger Details</h3>
+
+<form class="row g-3" th:action="@{/bookhotel}" method="post" th:object="${userBooking}">
+    <div class="col-md-6">
+        <label for="firstName" class="form-label">Firstname</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Enter the firstname" th:field="*{firstName}">
+    </div>
+    <div class="col-md-6">
+        <label for="lastName" class="form-label">Lastname</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter the lastname" th:field="*{lastName}">
+    </div>
+
+    <div class="col-12">
+        Traveller Type
+        <div class="col-8">
+            <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+            <select class="form-select" id="autoSizingSelect">
+                <option selected>Choose...</option>
+                <option value="1">Adults</option>
+                <option value="2">Children</option>
+                <option value="3">Infants</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="mobileNumber" class="form-label">Mobile Number</label>
+        <input type="text" class="form-control" id="mobileNumber" placeholder="Enter the mobile number" th:field="*{mobile}">
+    </div>
+    <div class="col-md-4">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter the email address" th:field="*{email}">
+    </div>
+    </div>
+    <div class="col-md-4">
+        <label for="passengerNumber" class="form-label">Number of Passengers</label>
+        <input type="text" class="form-control" id="passengerNumber" th:field="*{passengers}">
+    </div>
+    <div class="form-group">
+        <label for="checkin" class="control-label">&nbsp; Check In &nbsp;</label>
+        <input type="date" class="form-control" id="checkin" placeholder="from" name="checkin" th:field="*{checkIn}"
+               required>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="checkout">&nbsp; Check Out &nbsp;</label>
+        <input type="date" class="form-control" placeholder="To" id="checkout"
+               name="checkout" th:field="*{checkOut}" required>
+    </div>
+    <h5>Payment Details</h5>
+    <div class="col-md-4">
+        <label for="cardName" class="form-label">Name On Card</label>
+        <input type="text" class="form-control" id="cardName">
+    </div>
+    <div class="col-md-4">
+        <label for="cardNumber" class="form-label">Card Number</label>
+        <input type="text" class="form-control" id="cardNumber">
+    </div>
+    <div class="col-md-4">
+        <label for="expiryDate" class="form-label">Expiry Date</label>
+        <input type="month" class="form-control" id="expiryDate">
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
 </body>
 </html>
