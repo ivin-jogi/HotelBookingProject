@@ -5,7 +5,7 @@
 <body>
 <div th:replace="fragments :: html_header"></div>
 <div class="container bg-light">
-    <a class="btn btn-primary" th:href="@{/bookhotel(hotelid=${hotelinfo.getId()})}">Book Hotel</a>
+<!--    <a class="btn btn-primary" th:href="@{/bookhotel(hotelid=${hotelinfo.getId()})}">Book Hotel</a>-->
     <div class="col-md-12 text-center">
         <div>
 
@@ -24,26 +24,26 @@
             </div>
 
             <div th:each="property,state:${hotelinfo.propertyDescription}">
-                <p th:text="'Address : ' + ${property.address}"/>
-                <p th:text="'Star Rating : '+ ${property.starRatingTitle}"/>
-                <p th:text="'pricingAvailability : '+ ${property.featuredPrice?.pricingAvailability}"/>
-                <p th:text="'Current Price : '+ ${property.featuredPrice.currentPrice?.formatted}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'Address : ' + ${property.address}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'Star Rating : '+ ${property.starRatingTitle}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'pricingAvailability : '+ ${property.featuredPrice?.pricingAvailability}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'Current Price : '+ ${property.featuredPrice.currentPrice?.formatted}"/>
                 Map Url : <a th:href="  ${property.mapWidget?.staticMapurl}">
                 <p th:text=" ${property.mapWidget?.staticMapurl}"/></a>
 
-                <p th:text="'Room Types : '+ ${property.roomTypeNames}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'Room Types : '+ ${property.roomTypeNames}"/>
 
             </div>
 
             <div th:each="glance,state:${hotelinfo.atAGlance}">
-                <p th:text="'Requirements : ' + ${glance.keyFacts.hotelSize}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'Requirements : ' + ${glance.keyFacts.hotelSize}"/>
             </div>
 
             <div th:each="hygiene,state:${hotelinfo.hygieneAndCleanliness}">
-                <p th:text="${hygiene.title}"/>
-                <p th:text=" ${hygiene.healthAndSafetyMeasures?.title}"/>
-                <p th:text=" ${hygiene.healthAndSafetyMeasures?.description}"/>
-                <p th:text="'Measures : ' + ${hygiene.healthAndSafetyMeasures?.measures}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="${hygiene.title}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text=" ${hygiene.healthAndSafetyMeasures?.title}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text=" ${hygiene.healthAndSafetyMeasures?.description}"/>
+                <p style="color:green; border: 2px solid powderblue;" th:text="'Measures : ' + ${hygiene.healthAndSafetyMeasures?.measures}"/>
             </div>
             <div th:each="badge,state:${hotelinfo.hotelBadge}">
 
@@ -59,6 +59,7 @@
 </div>
 
 </div>
+<a class="btn btn-primary" th:href="@{/bookhotel(hotelid=${hotelinfo.getId()})}">Book Hotel</a>
 
 </body>
 </html>
