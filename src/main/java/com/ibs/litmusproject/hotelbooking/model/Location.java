@@ -30,8 +30,6 @@ public class Location {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "locations")
     private Set<Hotel> hotels = new HashSet<>();
 
-    public Location() {
-    }
 
     public Location(int id, String destinationId, String destinationName,
                     Set<Hotel> hotels) {
@@ -40,6 +38,11 @@ public class Location {
         this.destinationName = destinationName;
         this.hotels = hotels;
     }
+
+    public Location() {
+
+    }
+
 
     public int getId() {
         return id;
