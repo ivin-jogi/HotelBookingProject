@@ -74,10 +74,11 @@ public class MainController {
 
 
     @GetMapping("/mybooking")
-    public String bookings(Model model){
+    public String bookings(Model model,HttpSession session){
+        Long currentUserId = (Long) session.getAttribute("currentUserId");
         List<MyBookDto> lstbook=new ArrayList<>();
 
-        lstbook= myBookService.getMyBookList("1");
+        lstbook= myBookService.getMyBookList(""+currentUserId);
 
         model.addAttribute("bookpage",lstbook);
         return "mybooking";
