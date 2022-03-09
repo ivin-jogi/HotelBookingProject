@@ -23,14 +23,13 @@ public class SearchListService {
     @Value("${api.rapidapi.key}")
     private String apikey;//"05fb929379msh412cb255423d877p14d1c1jsn4e552df10dd7"
 
-    public List<SearchResultDto> getPropertyListApi(String destId, String checkIn, String checkOut,
-                                                    String adult) {
+    public List<SearchResultDto> getPropertyListApi(String destId, String checkIn, String checkOut, String adult) {
         System.out.println("apikey="+apikey);
         // String rapidUrl = "https://hotels4.p.rapidapi.com/properties/list?destinationId=1506246&pageNumber=1&pageSize=25&checkIn=2020-01-08&checkOut=2020-01-15&adults1=1&sortOrder=PRICE&locale=en_US&currency=USD";
         String apiUrl = "https://hotels4.p.rapidapi.com/properties/list";
-        apiUrl =
-                apiUrl + "?" + "destinationId=" + destId + "&pageNumber=1&pageSize=10&checkIn=" + checkIn
-                        + "&checkOut=" + checkOut + "&adults1=" + adult;
+
+        apiUrl = apiUrl + "?" + "destinationId=" + destId + "&pageNumber=1&pageSize=10&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults1=" + adult;
+
         RestTemplate restTemplate = new RestTemplate();
         List<SearchResultDto> searchList = new ArrayList<>();
         try {
