@@ -83,16 +83,20 @@ public class SearchDetailsService {
             map.setStaticMapurl(
                     pojoData.getData().getBody().getPropertyDescription().getMapWidget().getStaticMapUrl());
             property.setMapWidget(map);
-            FeaturedPriceDto fprice = new FeaturedPriceDto();
-            CurrentPriceDto cprice = new CurrentPriceDto();
-            cprice.setFormatted(
-                    pojoData.getData().getBody().getPropertyDescription().getFeaturedPrice().getCurrentPrice()
-                            .getFormatted());
-            fprice.setCurrentPrice(cprice);
-            fprice.setPricingAvailability(
-                    pojoData.getData().getBody().getPropertyDescription().getFeaturedPrice()
-                            .getPricingAvailability());
-            property.setFeaturedPrice(fprice);
+            try {
+                FeaturedPriceDto fprice = new FeaturedPriceDto();
+                CurrentPriceDto cprice = new CurrentPriceDto();
+                cprice.setFormatted(
+                        pojoData.getData().getBody().getPropertyDescription().getFeaturedPrice().getCurrentPrice()
+                                .getFormatted());
+                fprice.setCurrentPrice(cprice);
+                fprice.setPricingAvailability(
+                        pojoData.getData().getBody().getPropertyDescription().getFeaturedPrice()
+                                .getPricingAvailability());
+                property.setFeaturedPrice(fprice);
+            } catch (Exception e) {
+                System.out.println("Price is not Provided");
+            }
             property.setRoomTypeNames(
                     pojoData.getData().getBody().getPropertyDescription().getRoomTypeNames());
             List<PropertyDescriptionDto> lstproperty = new ArrayList<>();
