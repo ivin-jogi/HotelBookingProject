@@ -2,10 +2,12 @@ version: '2'
 
 services:
   app:
-    image: 'spring-hotel-booking:latest'
+    image: 'ivinjogi/spring-hotel-booking:latest'
     build:
       context: .
     container_name: hotelbookingapp
+    ports:
+      - "8000:8080"
     depends_on:
       - db
     environment:
