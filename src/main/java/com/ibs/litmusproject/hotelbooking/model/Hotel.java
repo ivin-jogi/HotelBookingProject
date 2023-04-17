@@ -28,6 +28,7 @@ public class Hotel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+
     @Column(name = "hotel_id")
     private String hotelId;
 
